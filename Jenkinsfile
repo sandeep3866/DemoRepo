@@ -24,6 +24,15 @@ pipeline{
 						echo "hello"
  					}
 		}
+	stage('four') {
+			parallel {
+					stage('unit test'){
+						steps {
+							echo "runnug the unit test"
+						}
+					}
+					
+			
 			stage('integration test'){
 					agent{
 						docker{
@@ -37,4 +46,6 @@ pipeline{
 			}
 	}
 }
-
+}
+}
+}
